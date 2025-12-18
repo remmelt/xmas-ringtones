@@ -52,36 +52,57 @@
         }
 
         .ringtone-item {
-            display: block;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
             margin-bottom: 1rem;
+            padding: 1rem 1.25rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            min-height: 60px;
         }
 
         .ringtone-item:last-child {
             margin-bottom: 0;
         }
 
-        .ringtone-item a {
+        .play-btn, .download-btn {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 1.25rem 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
             text-decoration: none;
+            font-size: 1.25rem;
             transition: all 0.2s ease;
-            min-height: 60px;
         }
 
-        .ringtone-item a:hover,
-        .ringtone-item a:active {
-            background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.02);
+        .play-btn {
+            background: rgba(255, 255, 255, 0.15);
+            color: #90ee90;
+        }
+
+        .play-btn:hover, .play-btn:active {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.1);
+        }
+
+        .download-btn {
+            background: rgba(255, 255, 255, 0.15);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .download-btn:hover, .download-btn:active {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.1);
         }
 
         .ringtone-info {
             display: flex;
             flex-direction: column;
             gap: 0.25rem;
+            flex: 1;
         }
 
         .artist {
@@ -93,11 +114,6 @@
         .title {
             color: #90ee90;
             font-size: 0.95rem;
-        }
-
-        .download-icon {
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.7);
         }
 
         .instructions {
@@ -124,58 +140,84 @@
 
         <div class="ringtone-list">
             <div class="ringtone-item">
-                <a href="out/igor - arc reter.m4r" download>
-                    <div class="ringtone-info">
-                        <span class="artist">Igor</span>
-                        <span class="title">Arc Reter</span>
-                    </div>
-                    <span class="download-icon">⬇</span>
-                </a>
+                <a href="in/anja - bees.m4a" class="play-btn">▶</a>
+                <div class="ringtone-info">
+                    <span class="artist">Anja</span>
+                    <span class="title">Bees</span>
+                </div>
+                <a href="out/anja - bees.m4r" download class="download-btn">⬇</a>
             </div>
             <div class="ringtone-item">
-                <a href="out/lena - gluck.m4r" download>
-                    <div class="ringtone-info">
-                        <span class="artist">Lena</span>
-                        <span class="title">Gluck</span>
-                    </div>
-                    <span class="download-icon">⬇</span>
-                </a>
+                <a href="in/fabian - pingel.m4a" class="play-btn">▶</a>
+                <div class="ringtone-info">
+                    <span class="artist">Fabian</span>
+                    <span class="title">Pingel</span>
+                </div>
+                <a href="out/fabian - pingel.m4r" download class="download-btn">⬇</a>
             </div>
             <div class="ringtone-item">
-                <a href="out/marianka - guitar.m4r" download>
-                    <div class="ringtone-info">
-                        <span class="artist">Marianka</span>
-                        <span class="title">Guitar</span>
-                    </div>
-                    <span class="download-icon">⬇</span>
-                </a>
+                <a href="in/igor - arc reter.m4a" class="play-btn">▶</a>
+                <div class="ringtone-info">
+                    <span class="artist">Igor</span>
+                    <span class="title">Arc Reter</span>
+                </div>
+                <a href="out/igor - arc reter.m4r" download class="download-btn">⬇</a>
             </div>
             <div class="ringtone-item">
-                <a href="out/marta - space frontier.m4r" download>
-                    <div class="ringtone-info">
-                        <span class="artist">Marta</span>
-                        <span class="title">Space Frontier</span>
-                    </div>
-                    <span class="download-icon">⬇</span>
-                </a>
+                <a href="in/juno - strangest.m4a" class="play-btn">▶</a>
+                <div class="ringtone-info">
+                    <span class="artist">Juno</span>
+                    <span class="title">Strangest</span>
+                </div>
+                <a href="out/juno - strangest.m4r" download class="download-btn">⬇</a>
             </div>
             <div class="ringtone-item">
-                <a href="out/ola - melo.m4r" download>
-                    <div class="ringtone-info">
-                        <span class="artist">Ola</span>
-                        <span class="title">Melo</span>
-                    </div>
-                    <span class="download-icon">⬇</span>
-                </a>
+                <a href="in/lena - gluck.m4a" class="play-btn">▶</a>
+                <div class="ringtone-info">
+                    <span class="artist">Lena</span>
+                    <span class="title">Gluck</span>
+                </div>
+                <a href="out/lena - gluck.m4r" download class="download-btn">⬇</a>
             </div>
             <div class="ringtone-item">
-                <a href="out/remmelt - urgenter guitar.m4r" download>
-                    <div class="ringtone-info">
-                        <span class="artist">Remmelt</span>
-                        <span class="title">Urgenter Guitar</span>
-                    </div>
-                    <span class="download-icon">⬇</span>
-                </a>
+                <a href="in/marianka - guitar.m4a" class="play-btn">▶</a>
+                <div class="ringtone-info">
+                    <span class="artist">Marianka</span>
+                    <span class="title">Guitar</span>
+                </div>
+                <a href="out/marianka - guitar.m4r" download class="download-btn">⬇</a>
+            </div>
+            <div class="ringtone-item">
+                <a href="in/marta - space frontier.m4a" class="play-btn">▶</a>
+                <div class="ringtone-info">
+                    <span class="artist">Marta</span>
+                    <span class="title">Space Frontier</span>
+                </div>
+                <a href="out/marta - space frontier.m4r" download class="download-btn">⬇</a>
+            </div>
+            <div class="ringtone-item">
+                <a href="in/nina - lets go.m4a" class="play-btn">▶</a>
+                <div class="ringtone-info">
+                    <span class="artist">Nina</span>
+                    <span class="title">Lets Go</span>
+                </div>
+                <a href="out/nina - lets go.m4r" download class="download-btn">⬇</a>
+            </div>
+            <div class="ringtone-item">
+                <a href="in/ola - melo.m4a" class="play-btn">▶</a>
+                <div class="ringtone-info">
+                    <span class="artist">Ola</span>
+                    <span class="title">Melo</span>
+                </div>
+                <a href="out/ola - melo.m4r" download class="download-btn">⬇</a>
+            </div>
+            <div class="ringtone-item">
+                <a href="in/remmelt - urgenter guitar.m4a" class="play-btn">▶</a>
+                <div class="ringtone-info">
+                    <span class="artist">Remmelt</span>
+                    <span class="title">Urgenter Guitar</span>
+                </div>
+                <a href="out/remmelt - urgenter guitar.m4r" download class="download-btn">⬇</a>
             </div>
         </div>
 

@@ -10,19 +10,23 @@ find out -name "*.m4r" -type f | sort | while read -r file; do
     title="${filename#* - }"
     title="${title%.m4r}"
 
+    # Find matching file in in/ (any extension)
+    base_pattern="$artist - $title"
+    in_file=$(find in -type f \( -name "$base_pattern.m4a" -o -name "$base_pattern.wav" -o -name "$base_pattern.mp3" \) 2>/dev/null | head -1)
+    in_filename=$(basename "$in_file" 2>/dev/null)
+
     # Capitalize each word
-    artist=$(echo "$artist" | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2))}1')
-    title=$(echo "$title" | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2))}1')
+    artist_display=$(echo "$artist" | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2))}1')
+    title_display=$(echo "$title" | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2))}1')
 
     cat <<EOF >> "$items_file"
             <div class="ringtone-item">
-                <a href="out/$filename" download>
-                    <div class="ringtone-info">
-                        <span class="artist">$artist</span>
-                        <span class="title">$title</span>
-                    </div>
-                    <span class="download-icon">⬇</span>
-                </a>
+                <a href="in/$in_filename" class="play-btn">▶</a>
+                <div class="ringtone-info">
+                    <span class="artist">$artist_display</span>
+                    <span class="title">$title_display</span>
+                </div>
+                <a href="out/$filename" download class="download-btn">⬇</a>
             </div>
 EOF
 done
