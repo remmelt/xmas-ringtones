@@ -20,5 +20,4 @@ build: convert
 deploy:
 	git add -A
 	git commit -m"new version"
-	git push origin master
-	
+	git push origin main

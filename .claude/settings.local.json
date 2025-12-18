@@ -3,7 +3,8 @@
     "allow": [
       "WebSearch",
       "Bash(./generate-html.sh:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(ffmpeg:*)"
     ]
   }
 }

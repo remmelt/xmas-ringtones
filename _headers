@@ -1,2 +1,8 @@
 /*.m4r
   Content-Type: audio/x-m4r
+
+/*.m4a
+  Content-Type: audio/mp4
+
+/*.wav
+  Content-Type: audio/wav
