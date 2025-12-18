@@ -1,6 +1,6 @@
 # Xmas Ringtones Site
 
-Static site for hosting iPhone ringtones on GitHub Pages.
+Static site for hosting iPhone ringtones on Cloudflare Pages.
 
 ## Adding Ringtones
 
@@ -21,9 +21,10 @@ Static site for hosting iPhone ringtones on GitHub Pages.
 git clone git@github.com:remmelt/xmas-ringtones.git
 ```
 
-## Cloudflare DNS
+## Cloudflare Pages
 
-CNAME record: `xmas-ringtones` -> `remmelt.github.io` (DNS only, gray cloud)
+Connected to GitHub repo, auto-deploys on push to main.
+Custom domain: `xmas-ringtones.remmelt.com`
 
 ## URLs
 

@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "WebSearch"
+      "WebSearch",
+      "Bash(./generate-html.sh:*)",
+      "Bash(git checkout:*)"
     ]
   }
 }
