@@ -16,3 +16,9 @@ convert:
 
 build: convert
 	./generate-html.sh
+
+deploy:
+	git add -A
+	git commit -m"new version"
+	git push origin master
+	
