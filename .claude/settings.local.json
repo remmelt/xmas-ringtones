@@ -4,7 +4,8 @@
       "WebSearch",
       "Bash(./generate-html.sh:*)",
       "Bash(git checkout:*)",
-      "Bash(ffmpeg:*)"
+      "Bash(ffmpeg:*)",
+      "Bash(cat:*)"
     ]
   }
 }
