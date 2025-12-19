@@ -153,5 +153,14 @@
             Merry Christmas! 🎄
         </footer>
     </div>
+    <script>
+    (function() {
+        var hash = location.hash.slice(1).toLowerCase();
+        if (!hash) return;
+        document.querySelectorAll('.ringtone-item').forEach(function(item) {
+            if (item.dataset.artist !== hash) item.style.display = 'none';
+        });
+    })();
+    </script>
 </body>
 </html>

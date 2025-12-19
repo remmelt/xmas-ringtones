@@ -142,7 +142,7 @@
         </h1>
 
         <div class="ringtone-list">
-            <div class="ringtone-item">
+            <div class="ringtone-item" data-artist="anja">
                 <a href="in/anja - bees.m4a" class="play-btn">▶</a>
                 <div class="ringtone-info">
                     <span class="artist">Anja</span>
@@ -150,7 +150,7 @@
                 </div>
                 <a href="out/anja - bees.m4r" download class="download-btn">⬇</a>
             </div>
-            <div class="ringtone-item">
+            <div class="ringtone-item" data-artist="fabian">
                 <a href="in/fabian - pingel.m4a" class="play-btn">▶</a>
                 <div class="ringtone-info">
                     <span class="artist">Fabian</span>
@@ -158,7 +158,7 @@
                 </div>
                 <a href="out/fabian - pingel.m4r" download class="download-btn">⬇</a>
             </div>
-            <div class="ringtone-item">
+            <div class="ringtone-item" data-artist="franka">
                 <a href="in/franka - oo aaoo aa.m4a" class="play-btn">▶</a>
                 <div class="ringtone-info">
                     <span class="artist">Franka</span>
@@ -166,7 +166,7 @@
                 </div>
                 <a href="out/franka - oo aaoo aa.m4r" download class="download-btn">⬇</a>
             </div>
-            <div class="ringtone-item">
+            <div class="ringtone-item" data-artist="ida">
                 <a href="in/ida - krowa.m4a" class="play-btn">▶</a>
                 <div class="ringtone-info">
                     <span class="artist">Ida</span>
@@ -174,7 +174,7 @@
                 </div>
                 <a href="out/ida - krowa.m4r" download class="download-btn">⬇</a>
             </div>
-            <div class="ringtone-item">
+            <div class="ringtone-item" data-artist="igor">
                 <a href="in/igor - arc reter.m4a" class="play-btn">▶</a>
                 <div class="ringtone-info">
                     <span class="artist">Igor</span>
@@ -182,7 +182,7 @@
                 </div>
                 <a href="out/igor - arc reter.m4r" download class="download-btn">⬇</a>
             </div>
-            <div class="ringtone-item">
+            <div class="ringtone-item" data-artist="juno">
                 <a href="in/juno - strangest.m4a" class="play-btn">▶</a>
                 <div class="ringtone-info">
                     <span class="artist">Juno</span>
@@ -190,7 +190,7 @@
                 </div>
                 <a href="out/juno - strangest.m4r" download class="download-btn">⬇</a>
             </div>
-            <div class="ringtone-item">
+            <div class="ringtone-item" data-artist="lena">
                 <a href="in/lena - more work.m4a" class="play-btn">▶</a>
                 <div class="ringtone-info">
                     <span class="artist">Lena</span>
@@ -198,7 +198,7 @@
                 </div>
                 <a href="out/lena - more work.m4r" download class="download-btn">⬇</a>
             </div>
-            <div class="ringtone-item">
+            <div class="ringtone-item" data-artist="marianka">
                 <a href="in/marianka - beeps.m4a" class="play-btn">▶</a>
                 <div class="ringtone-info">
                     <span class="artist">Marianka</span>
@@ -206,7 +206,7 @@
                 </div>
                 <a href="out/marianka - beeps.m4r" download class="download-btn">⬇</a>
             </div>
-            <div class="ringtone-item">
+            <div class="ringtone-item" data-artist="marta">
                 <a href="in/marta - space frontier.m4a" class="play-btn">▶</a>
                 <div class="ringtone-info">
                     <span class="artist">Marta</span>
@@ -214,7 +214,7 @@
                 </div>
                 <a href="out/marta - space frontier.m4r" download class="download-btn">⬇</a>
             </div>
-            <div class="ringtone-item">
+            <div class="ringtone-item" data-artist="nina">
                 <a href="in/nina - lets go.m4a" class="play-btn">▶</a>
                 <div class="ringtone-info">
                     <span class="artist">Nina</span>
@@ -222,7 +222,7 @@
                 </div>
                 <a href="out/nina - lets go.m4r" download class="download-btn">⬇</a>
             </div>
-            <div class="ringtone-item">
+            <div class="ringtone-item" data-artist="ola">
                 <a href="in/ola - melo.m4a" class="play-btn">▶</a>
                 <div class="ringtone-info">
                     <span class="artist">Ola</span>
@@ -230,7 +230,7 @@
                 </div>
                 <a href="out/ola - melo.m4r" download class="download-btn">⬇</a>
             </div>
-            <div class="ringtone-item">
+            <div class="ringtone-item" data-artist="remmelt">
                 <a href="in/remmelt - urgenter guitar.m4a" class="play-btn">▶</a>
                 <div class="ringtone-info">
                     <span class="artist">Remmelt</span>
@@ -248,5 +248,14 @@
             Merry Christmas! 🎄
         </footer>
     </div>
+    <script>
+    (function() {
+        var hash = location.hash.slice(1).toLowerCase();
+        if (!hash) return;
+        document.querySelectorAll('.ringtone-item').forEach(function(item) {
+            if (item.dataset.artist !== hash) item.style.display = 'none';
+        });
+    })();
+    </script>
 </body>
 </html>

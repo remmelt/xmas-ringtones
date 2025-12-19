@@ -19,8 +19,9 @@ find out -name "*.m4r" -type f | sort | while read -r file; do
     artist_display=$(echo "$artist" | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2))}1')
     title_display=$(echo "$title" | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2))}1')
 
+    artist_lower=$(echo "$artist" | tr '[:upper:]' '[:lower:]')
     cat <<EOF >> "$items_file"
-            <div class="ringtone-item">
+            <div class="ringtone-item" data-artist="$artist_lower">
                 <a href="in/$in_filename" class="play-btn">▶</a>
                 <div class="ringtone-info">
                     <span class="artist">$artist_display</span>

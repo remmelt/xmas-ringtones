@@ -14,7 +14,7 @@ convert:
 	mkdir out
 	fd . in -x ./go.sh
 
-build: convert
+build:
 	./generate-html.sh
 
 deploy:
