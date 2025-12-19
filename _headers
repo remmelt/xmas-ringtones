@@ -1,8 +1,6 @@
 /*.m4r
   Content-Type: audio/x-m4r
+  Content-Disposition: attachment
 
 /*.m4a
   Content-Type: audio/mp4
-
-/*.wav
-  Content-Type: audio/wav
