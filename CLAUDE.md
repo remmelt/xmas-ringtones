@@ -4,22 +4,30 @@ Static site for hosting iPhone ringtones on Cloudflare Pages.
 
 ## Adding Ringtones
 
-1. Add `.m4r` files with naming pattern: `artist - title.m4r`
-2. Update `index.html` - add a new entry in the `.ringtone-list` div:
-   ```html
-   <div class="ringtone-item">
-       <span class="artist">Artist</span>
-       <span class="separator">:</span>
-       <span class="title"><a href="artist - title.m4r" download>title</a></span>
-   </div>
-   ```
-3. Commit and push
+1. Add source audio to `in/` with naming pattern: `artist - title.m4a` (or `.wav`)
+2. If wav files, run `make wav2m4a` to convert to m4a
+3. Run `make build` to generate ringtones and HTML
+4. Run `make deploy` to commit and push
 
-## Setup on New Computer
+## File Structure
 
-```bash
-git clone git@github.com:remmelt/xmas-ringtones.git
-```
+- `in/` - source audio files (m4a, wav)
+- `out/` - generated ringtones (m4r)
+- `index.template.html` - HTML template with `{{RINGTONES}}` placeholder
+- `generate-html.sh` - generates index.html from template and out/ files
+
+## Makefile Targets
+
+- `wav2m4a` - convert wav files in in/ to m4a
+- `convert` - generate m4r files in out/ from in/
+- `build` - convert + generate HTML
+- `deploy` - git add, commit, push
+
+## URL Filtering
+
+Filter ringtones by artist using URL hash: `#artistname`
+
+Example: `https://xmas-ringtones.remmelt.com/#ola`
 
 ## Cloudflare Pages
 

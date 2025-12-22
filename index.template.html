@@ -155,11 +155,14 @@
     </div>
     <script>
     (function() {
-        var hash = location.hash.slice(1).toLowerCase();
-        if (!hash) return;
-        document.querySelectorAll('.ringtone-item').forEach(function(item) {
-            if (item.dataset.artist !== hash) item.style.display = 'none';
-        });
+        function filterByHash() {
+            var hash = location.hash.slice(1).toLowerCase();
+            document.querySelectorAll('.ringtone-item').forEach(function(item) {
+                item.style.display = (!hash || item.dataset.artist === hash) ? '' : 'none';
+            });
+        }
+        filterByHash();
+        window.addEventListener('hashchange', filterByHash);
     })();
     </script>
 </body>
