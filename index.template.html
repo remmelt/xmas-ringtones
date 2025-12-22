@@ -177,9 +177,9 @@
 </head>
 <body>
     <div class="container">
-        <h1>
-            <span class="snowflake">❄</span> Xmas <span class="snowflake">❄</span><br>
-            <span class="snowflake">❄</span> Ringtones <span class="snowflake">❄</span>
+        <h1 id="title">
+            <span class="snowflake">❄</span> <span data-i18n="titleLine1">Xmas</span> <span class="snowflake">❄</span><br>
+            <span class="snowflake">❄</span> <span data-i18n="titleLine2">Ringtones</span> <span class="snowflake">❄</span>
         </h1>
 
         <div class="lang-picker">
@@ -207,11 +207,15 @@
     (function() {
         var translations = {
             pl: {
+                titleLine1: 'Świąteczne',
+                titleLine2: 'Dzwonki',
                 showEveryone: 'Pokaż wszystkich',
                 instructions: 'Na iPhone (iOS 26+): Pobierz, a następnie ustaw jako dzwonek z aplikacji Pliki.',
                 footer: 'Wesołych Świąt! 🎄'
             },
             en: {
+                titleLine1: 'Xmas',
+                titleLine2: 'Ringtones',
                 showEveryone: 'Show everyone',
                 instructions: 'On iPhone (iOS 26+): Tap to download, then set as ringtone from Files.',
                 footer: 'Merry Christmas! 🎄'
