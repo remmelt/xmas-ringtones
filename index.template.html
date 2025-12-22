@@ -116,6 +116,47 @@
             font-size: 0.95rem;
         }
 
+        .lang-picker {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .lang-picker button {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid transparent;
+            border-radius: 8px;
+            padding: 0.5rem 0.75rem;
+            margin: 0 0.25rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-picker button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lang-picker button.active {
+            border-color: #ffd700;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .filter-notice {
+            text-align: center;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .filter-notice a {
+            color: #ffd700;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .filter-notice a:hover {
+            text-decoration: underline;
+        }
+
         .instructions {
             margin-top: 2rem;
             padding: 1rem;
@@ -141,22 +182,68 @@
             <span class="snowflake">❄</span> Ringtones <span class="snowflake">❄</span>
         </h1>
 
+        <div class="lang-picker">
+            <button data-lang="pl" title="Polski">🇵🇱</button>
+            <button data-lang="en" title="English">🇬🇧</button>
+        </div>
+
+        <div class="filter-notice" id="filter-notice">
+            <a href="#" data-i18n="showEveryone">Show everyone</a>
+        </div>
+
         <div class="ringtone-list">
 {{RINGTONES}}
         </div>
 
-        <div class="instructions">
+        <div class="instructions" data-i18n="instructions">
             On iPhone (iOS 26+): Tap to download, then set as ringtone from Files.
         </div>
 
-        <footer>
+        <footer data-i18n="footer">
             Merry Christmas! 🎄
         </footer>
     </div>
     <script>
     (function() {
+        var translations = {
+            pl: {
+                showEveryone: 'Pokaż wszystkich',
+                instructions: 'Na iPhone (iOS 26+): Pobierz, a następnie ustaw jako dzwonek z aplikacji Pliki.',
+                footer: 'Wesołych Świąt! 🎄'
+            },
+            en: {
+                showEveryone: 'Show everyone',
+                instructions: 'On iPhone (iOS 26+): Tap to download, then set as ringtone from Files.',
+                footer: 'Merry Christmas! 🎄'
+            }
+        };
+
+        function setLanguage(lang) {
+            localStorage.setItem('lang', lang);
+            document.querySelectorAll('.lang-picker button').forEach(function(btn) {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+            document.querySelectorAll('[data-i18n]').forEach(function(el) {
+                var key = el.dataset.i18n;
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        document.querySelectorAll('.lang-picker button').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                setLanguage(btn.dataset.lang);
+            });
+        });
+
+        var savedLang = localStorage.getItem('lang') || 'pl';
+        setLanguage(savedLang);
+
         function filterByHash() {
             var hash = location.hash.slice(1).toLowerCase();
+            var notice = document.getElementById('filter-notice');
+            notice.style.display = hash ? 'block' : 'none';
             document.querySelectorAll('.ringtone-item').forEach(function(item) {
                 item.style.display = (!hash || item.dataset.artist === hash) ? '' : 'none';
             });
